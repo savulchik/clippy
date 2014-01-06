@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+
+  "name": "Clippy",
+  "description": "Copy selected text to clipboard using custom keyboard shortcut.",
+  "version": "0.1.0",
+
+  "commands": {
+    "copy-selected-text-to-clipboard": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+C"
+      },
+      "description": "Copy selected text to clipboard"
+    }
+  },
+
+  "background": {
+    "scripts": ["js/background.js"],
+    "persistent": false
+  },
+
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["js/content_script.js"]
+  }],
+
+  "permissions": [
+    "clipboardWrite"
+  ]
+}
